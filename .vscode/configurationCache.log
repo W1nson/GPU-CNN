@@ -1,0 +1,1 @@
+{"buildTargets":["CNN","CNN.o","all","clean","conv","conv.o","dense","dense.o","mat.o","matmul.o","maxpool","maxpool.o"],"launchTargets":[],"customConfigurationProvider":{"workspaceBrowse":{"browsePath":[],"compilerArgs":[]},"fileIndex":[]}}

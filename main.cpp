@@ -1,7 +1,8 @@
-// #include <hip/hip_runtime.h> 
+#include <hip/hip_runtime.h> 
 
 #include <iostream> 
 #include "matrix.h"
+#include "matmul.h" 
 
 using namespace std;
 
@@ -10,15 +11,15 @@ using namespace std;
 int main() {
 	
 
-	int row = 3; 
-	int col = 3; 
+	size_t row = 3; 
+	size_t col = 3; 
+	size_t stride = 3;
 	
-	float **data;
-	data = new float *[row];
-	for(int i = 0; i < row; i++) {
-		data[i] = new float [col];
-		for(int j = 0; j < col; j++) {
-			data[i][j] = 1;
+	float *data;
+	data = new float [row*col];
+	for(size_t i = 0; i < row; i++) {
+		for(size_t j = 0; j < col; j++) {
+			data[i * stride + j] = 0.1f;
 		}
 	}
 	Matrix mat1(data, row, col);
@@ -32,6 +33,17 @@ int main() {
 
 	mat3.printGrid(); 
 
+	mat3 = mat1.subtract(mat2); 
+	
+	mat3.printGrid(); 
+
+	mat3 = mat1.add(mat2); 
+	
+	mat3.printGrid();
+
+	mat3 = mat1.multi(mat2); 
+	
+	mat3.printGrid();  
 
 	return 0 ;
 }

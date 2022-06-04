@@ -1,0 +1,487 @@
+make all --print-data-base --no-builtin-variables --no-builtin-rules --question
+# GNU Make 3.82
+# Built for x86_64-redhat-linux-gnu
+# Copyright (C) 2010  Free Software Foundation, Inc.
+# License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+ 
+# This is free software: you are free to change and redistribute it.
+# There is NO WARRANTY, to the extent permitted by law.
+ 
+
+# Make data base, printed on Sat Jun  4 13:14:07 2022
+
+# Variables
+
+# automatic
+<D = $(patsubst %/,%,$(dir $<))
+# automatic
+?F = $(notdir $?)
+# default
+.SHELLFLAGS := -c
+# environment
+VSCODE_AGENT_FOLDER = /home/wchen157/.vscode-server
+# environment
+VSCODE_LOG_NATIVE = false
+# environment
+MODULEPATH = /cm/local/modulefiles:/cm/shared/modulefiles
+# automatic
+?D = $(patsubst %/,%,$(dir $?))
+# makefile (from `Makefile', line 1)
+C = hipcc 
+# automatic
+@D = $(patsubst %/,%,$(dir $@))
+# automatic
+@F = $(notdir $@)
+# default
+MAKE_VERSION := 3.82
+# makefile
+CURDIR := /home/wchen157/AM148/GPU-CNN
+# makefile
+SHELL = /bin/sh
+# environment
+define BASH_FUNC_switchml()
+() {  typeset swfound=1;
+ if [ "${MODULES_USE_COMPAT_VERSION:-0}" = '1' ]; then
+ typeset swname='main';
+ if [ -e /cm/local/apps/environment-modules/4.5.3//libexec/modulecmd.tcl ]; then
+ typeset swfound=0;
+ unset MODULES_USE_COMPAT_VERSION;
+ fi;
+ else
+ typeset swname='compatibility';
+ if [ -e /cm/local/apps/environment-modules/4.5.3//libexec/modulecmd-compat ]; then
+ typeset swfound=0;
+ MODULES_USE_COMPAT_VERSION=1;
+ export MODULES_USE_COMPAT_VERSION;
+ fi;
+ fi;
+ if [ $swfound -eq 0 ]; then
+ echo "Switching to Modules $swname version";
+ source /cm/local/apps/environment-modules/4.5.3//init/bash;
+ else
+ echo "Cannot switch to Modules $swname version, command not found";
+ return 1;
+ fi
+}
+endef
+# environment
+ENABLE_LMOD = 0
+# environment
+VSCODE_NLS_CONFIG = {"locale":"en","availableLanguages":{}}
+# environment
+_ = /usr/bin/make
+# makefile (from `Makefile', line 2)
+CFLAGS = -std=c++11
+# makefile (from `Makefile', line 1)
+MAKEFILE_LIST :=  Makefile
+# environment
+HISTCONTROL = ignoredups
+# environment
+LOADEDMODULES_modshare = slurm/slurm/20.11.8:1
+# environment
+define BASH_FUNC_ml()
+() {  module ml "$@"
+}
+endef
+# environment
+XDG_DATA_DIRS = /home/wchen157/.local/share/flatpak/exports/share:/var/lib/flatpak/exports/share:/usr/local/share:/usr/share
+# environment
+VSCODE_VERBOSE_LOGGING = true
+# environment
+LESSOPEN = ||/usr/bin/lesspipe.sh %s
+# environment
+VSCODE_CWD = /home/wchen157
+# environment
+_LMFILES__modshare = /cm/local/modulefiles/slurm/slurm/20.11.8:1
+# environment
+KRB5CCNAME = KEYRING:persistent:238442
+# environment
+SSH_CONNECTION = 128.114.220.123 52040 128.114.183.225 22
+# environment
+ 
+PATH = /home/wchen157/.vscode-server/bin/c3511e6c69bb39013c4a4b7b9566ec1ca73fc4d5/bin/remote-cli:/cm/shared/apps/slurm/current/sbin:/cm/shared/apps/slurm/current/bin:/cm/local/apps/environment-modules/4.5.3//bin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/sbin:/usr/sbin:/cm/local/apps/environment-modules/4.5.3/bin:/opt/dell/srvadmin/bin:/home/wchen157/.local/bin:/home/wchen157/bin:/home/wchen157/.local/bin:/home/wchen157/bin
+# environment
+XDG_RUNTIME_DIR = /run/user/238442
+# environment
+MODULES_CMD = /cm/local/apps/environment-modules/4.5.3/libexec/modulecmd.tcl
+# environment
+LIBRARY_PATH = /cm/shared/apps/slurm/current/lib64/slurm:/cm/shared/apps/slurm/current/lib64
+# environment
+CPATH = /cm/shared/apps/slurm/current/include
+# environment
+BASH_ENV = /cm/local/apps/environment-modules/4.5.3//init/bash
+# environment
+VSCODE_LOG_STACK = false
+# default
+.FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell archives jobserver check-symlink
+# automatic
+%F = $(notdir $%)
+# environment
+SLURM_CONF = /cm/shared/apps/slurm/var/etc/slurm/slurm.conf
+# environment
+VSCODE_PIPE_LOGGING = true
+# environment
+PWD = /home/wchen157/AM148/GPU-CNN
+# environment
+VSCODE_IPC_HOOK_CLI = /run/user/238442/vscode-ipc-730a652d-0ccc-4d32-915a-59373663e91d.sock
+# automatic
+*D = $(patsubst %/,%,$(dir $*))
+# environment
+MANPATH = /cm/shared/apps/slurm/current/man:/cm/local/apps/environment-modules/4.5.3//share/man:/usr/local/share/man:/usr/share/man/overrides:/usr/share/man:/cm/local/apps/environment-modules/current/share/man:/cm/local/apps/environment-modules/current/share/man
+# environment
+VSCODE_AMD_ENTRYPOINT = vs/workbench/api/node/extensionHostProcess
+# environment
+HOME = /home/wchen157
+# environment
+LD_LIBRARY_PATH = /cm/shared/apps/slurm/current/lib64/slurm:/cm/shared/apps/slurm/current/lib64
+# environment
+MODULESHOME = /cm/local/apps/environment-modules/4.5.3/
+# environment
+LOGNAME = wchen157
+# environment
+APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = true
+# automatic
++F = $(notdir $+)
+# environment
+VSCODE_HANDLES_UNCAUGHT_ERRORS = true
+# automatic
+^D = $(patsubst %/,%,$(dir $^))
+# environment
+HOSTNAME = lux-0
+# environment
+MAKELEVEL := 0
+# default
+MAKE = $(MAKE_COMMAND)
+# default
+MAKECMDGOALS := all
+# environment
+SHLVL = 5
+# environment
+XDG_SESSION_ID = 73559
+# environment
+USER = wchen157
+# makefile
+.DEFAULT_GOAL := all
+# automatic
+%D = $(patsubst %/,%,$(dir $%))
+# environment
+define BASH_FUNC_module()
+() {  unset _mlshdbg;
+ if [ "${MODULES_SILENT_SHELL_DEBUG:-0}" = '1' ]; then
+ case "$-" in 
+ *v*x*)
+ set +vx;
+ _mlshdbg='vx'
+ ;;
+ *v*)
+ set +v;
+ _mlshdbg='v'
+ ;;
+ *x*)
+ set +x;
+ _mlshdbg='x'
+ ;;
+ *)
+ _mlshdbg=''
+ ;;
+ esac;
+ fi;
+ unset _mlre _mlIFS;
+ if [ -n "${IFS+x}" ]; then
+ _mlIFS=$IFS;
+ fi;
+ IFS=' ';
+ for _mlv in ${MODULES_RUN_QUARANTINE:-};
+ do
+ if [ "${_mlv}" = "${_mlv##*[!A-Za-z0-9_]}" -a "${_mlv}" = "${_mlv#[0-9]}" ]; then
+ if [ -n "`eval 'echo ${'$_mlv'+x}'`" ]; then
+ _mlre="${_mlre:-}${_mlv}_modquar='`eval 'echo ${'$_mlv'}'`' ";
+ fi;
+ _mlrv="MODULES_RUNENV_${_mlv}";
+ _mlre="${_mlre:-}${_mlv}='`eval 'echo ${'$_mlrv':-}'`' ";
+ fi;
+ done;
+ if [ -n "${_mlre:-}" ]; then
+ eval `eval ${_mlre} /usr/bin/tclsh /cm/local/apps/environment-modules/4.5.3/libexec/modulecmd.tcl bash '"$@"'`;
+ else
+ eval `/usr/bin/tclsh /cm/local/apps/environment-modules/4.5.3/libexec/modulecmd.tcl bash "$@"`;
+ fi;
+ _mlstatus=$?;
+ if [ -n "${_mlIFS+x}" ]; then
+ IFS=$_mlIFS;
+ else
+ unset IFS;
+ fi;
+ unset _mlre _mlv _mlrv _mlIFS;
+ if [ -n "${_mlshdbg:-}" ]; then
+ set -$_mlshdbg;
+ fi;
+ unset _mlshdbg;
+ return $_mlstatus
+}
+endef
+# default
+MAKE_COMMAND := make
+# environment
+CMD_WLM_CLUSTER_NAME = slurm
+# environment
+PATH_modshare = /cm/shared/apps/slurm/current/bin:1:/cm/local/apps/environment-modules/4.5.3//bin:1:/usr/sbin:1:/usr/bin:1:/cm/local/apps/environment-modules/4.5.3/bin:1:/opt/dell/srvadmin/bin:1:/usr/local/sbin:1:/cm/shared/apps/slurm/current/sbin:1:/usr/local/bin:1:/sbin:1
+# default
+.VARIABLES := 
+# automatic
+*F = $(notdir $*)
+# makefile
+MAKEFLAGS = Rrqp
+# environment
+MFLAGS = -Rrqp
+# environment
+SSH_CLIENT = 128.114.220.123 52040 22
+# environment
+MAIL = /var/spool/mail/wchen157
+# environment
+LOADEDMODULES = slurm/slurm/20.11.8
+# environment
+LIBRARY_PATH_modshare = /cm/shared/apps/slurm/current/lib64:1:/cm/shared/apps/slurm/current/lib64/slurm:1
+# automatic
++D = $(patsubst %/,%,$(dir $+))
+# environment
+CPATH_modshare = /cm/shared/apps/slurm/current/include:1
+# environment
+BROWSER = /home/wchen157/.vscode-server/bin/c3511e6c69bb39013c4a4b7b9566ec1ca73fc4d5/bin/helpers/browser.sh
+# environment
+VSCODE_HANDLES_SIGPIPE = true
+# default
+MAKEFILES := 
+# automatic
+<F = $(notdir $<)
+# environment
+_LMFILES_ = /cm/local/modulefiles/slurm/slurm/20.11.8
+# environment
+LC_ALL = C
+# automatic
+^F = $(notdir $^)
+# default
+SUFFIXES := 
+# environment
+HISTSIZE = 1000
+# environment
+MANPATH_modshare = /usr/local/share/man:1:/usr/share/man/overrides:1:/cm/local/apps/environment-modules/4.5.3//share/man:1:/cm/local/apps/environment-modules/current/share/man:1:/usr/share/man:1:/cm/shared/apps/slurm/current/man:1
+# environment
+LD_LIBRARY_PATH_modshare = /cm/shared/apps/slurm/current/lib64:1:/cm/shared/apps/slurm/current/lib64/slurm:1
+# default
+.INCLUDE_DIRS = /usr/include /usr/local/include /usr/include
+# default
+.RECIPEPREFIX := 
+# environment
+ENV = /cm/local/apps/environment-modules/4.5.3//init/profile.sh
+# environment
+LANG = C
+# environment
+VSCODE_EXTHOST_WILL_SEND_SOCKET = true
+# variable set hash-table stats:
+# Load=92/1024=9%, Rehash=0, Collisions=6/119=5%
+
+# Pattern-specific Variable Values
+
+# No pattern-specific variable values.
+
+# Directories
+
+# . (device 1991046868, inode 144120372302809331): 31 files, no impossibilities.
+
+# 31 files, no impossibilities in 1 directories.
+
+# Implicit Rules
+
+# No implicit rules.
+
+# Files
+
+CNN: matmul.o CNN.o mat.o conv.o
+#  Implicit rule search has not been done.
+#  Last modified 2022-06-03 18:38:12
+#  File has been updated.
+#  Needs to be updated (-q is set).
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/5=0%
+#  recipe to execute (from `Makefile', line 12):
+	$(C) $(CFLAGS) -o CNN matmul.o CNN.o mat.o conv.o
+
+all: CNN
+#  Command line target.
+#  Implicit rule search has been done.
+#  File does not exist.
+#  File has been updated.
+#  Needs to be updated (-q is set).
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/5=0%
+
+CNN.o: CNN.cpp
+#  Implicit rule search has not been done.
+#  Implicit/static pattern stem: `'
+#  Last modified 2022-06-03 18:35:52
+#  File has been updated.
+#  Needs to be updated (-q is set).
+# automatic
+# @ := CNN.o
+# automatic
+# % := 
+# automatic
+# * := 
+# automatic
+# + := CNN.cpp
+# automatic
+# | := 
+# automatic
+# < := CNN.cpp
+# automatic
+# ^ := CNN.cpp
+# automatic
+# ? := CNN.cpp
+# variable set hash-table stats:
+# Load=8/32=25%, Rehash=0, Collisions=1/13=8%
+#  recipe to execute (from `Makefile', line 15):
+	$(C) $(CFLAGS) -c CNN.cpp -o CNN.o
+
+matmul.o: matmul.cpp
+#  Implicit rule search has not been done.
+#  Last modified 2022-06-03 15:39:53
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from `Makefile', line 37):
+	$(C) $(CFLAGS) -dc matmul.cpp
+
+# Not a target:
+dense.cpp:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+maxPool.cpp:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+.SUFFIXES:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+Makefile:
+#  Implicit rule search has been done.
+#  Last modified 2022-06-04 13:14:07
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+mat.cpp:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+.DEFAULT:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+CNN.cpp:
+#  Implicit rule search has been done.
+#  Last modified 2022-06-03 18:38:36
+#  File has been updated.
+#  Successfully updated.
+
+dense: dense.o mat.o
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from `Makefile', line 31):
+	$(C) $(CFLAGS) -o dense dense.o mat.o
+
+clean:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from `Makefile', line 42):
+	rm *.o conv, mat, main, CNN
+
+maxpool: maxpool.o mat.o
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from `Makefile', line 25):
+	$(C) $(CFLAGS) -o maxpool maxpool.o mat.o
+
+dense.o: dense.cpp
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from `Makefile', line 34):
+	$(C) $(CFLAGS) -dc dense.cpp -o dense.o	
+
+maxpool.o: maxPool.cpp
+#  Implicit rule search has not been done.
+ 
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from `Makefile', line 28):
+	$(C) $(CFLAGS) -dc maxPool.cpp -o maxpool.o
+
+# Not a target:
+conv2D.cpp:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+matmul.cpp:
+#  Implicit rule search has been done.
+#  Last modified 2022-06-03 15:04:45
+#  File has been updated.
+#  Successfully updated.
+
+mat.o: mat.cpp
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from `Makefile', line 39):
+	$(C) $(CFLAGS) -dc mat.cpp
+
+conv.o: conv2D.cpp
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from `Makefile', line 22):
+	$(C) $(CFLAGS) -dc conv2D.cpp -o conv.o
+	
+
+conv: conv.o mat.o
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from `Makefile', line 19):
+	$(C) $(CFLAGS) -o conv conv.o mat.o
+	
+
+# files hash-table stats:
+# Load=21/1024=2%, Rehash=0, Collisions=0/57=0%
+# VPATH Search Paths
+
+# No `vpath' search paths.
+
+# No general (`VPATH' variable) search path.
+
+# # of strings in strcache: 0 / lookups = 82 / hits = 82
+# # of strcache buffers: 1 (* 8176 B/buffer = 8176 B)
+# strcache used: total = 0 (318) / max = 0 / min = 8176 / avg = 0
+# strcache free: total = 0 (7858) / max = 0 / min = 8176 / avg = 0
+
+# strcache hash-table stats:
+# Load=39/8192=0%, Rehash=0, Collisions=1/82=1%
+# Finished Make data base on Sat Jun  4 13:14:07 2022
+
+ 

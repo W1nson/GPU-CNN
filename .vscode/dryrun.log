@@ -1,0 +1,8 @@
+make --dry-run --keep-going --print-directory
+make: Entering directory `/home/wchen157/AM148/GPU-CNN'
+hipcc  -std=c++11 -c CNN.cpp -o CNN.o
+ 
+hipcc  -std=c++11 -o CNN matmul.o CNN.o mat.o conv.o
+ 
+make: Leaving directory `/home/wchen157/AM148/GPU-CNN'
+ 
