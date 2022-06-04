@@ -3,18 +3,18 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # Built for x86_64-redhat-linux-gnu
 # Copyright (C) 2010  Free Software Foundation, Inc.
 # License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
- 
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
  
 
-# Make data base, printed on Sat Jun  4 13:14:07 2022
+# Make data base, printed on Sat Jun  4 14:54:21 2022
 
 # Variables
 
 # automatic
 <D = $(patsubst %/,%,$(dir $<))
 # automatic
+ 
 ?F = $(notdir $?)
 # default
 .SHELLFLAGS := -c
@@ -98,7 +98,6 @@ KRB5CCNAME = KEYRING:persistent:238442
 # environment
 SSH_CONNECTION = 128.114.220.123 52040 128.114.183.225 22
 # environment
- 
 PATH = /home/wchen157/.vscode-server/bin/c3511e6c69bb39013c4a4b7b9566ec1ca73fc4d5/bin/remote-cli:/cm/shared/apps/slurm/current/sbin:/cm/shared/apps/slurm/current/bin:/cm/local/apps/environment-modules/4.5.3//bin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/sbin:/usr/sbin:/cm/local/apps/environment-modules/4.5.3/bin:/opt/dell/srvadmin/bin:/home/wchen157/.local/bin:/home/wchen157/bin:/home/wchen157/.local/bin:/home/wchen157/bin
 # environment
 XDG_RUNTIME_DIR = /run/user/238442
@@ -123,7 +122,7 @@ VSCODE_PIPE_LOGGING = true
 # environment
 PWD = /home/wchen157/AM148/GPU-CNN
 # environment
-VSCODE_IPC_HOOK_CLI = /run/user/238442/vscode-ipc-730a652d-0ccc-4d32-915a-59373663e91d.sock
+VSCODE_IPC_HOOK_CLI = /run/user/238442/vscode-ipc-04714c44-4d49-4b6a-a305-cbb60d3c940a.sock
 # automatic
 *D = $(patsubst %/,%,$(dir $*))
 # environment
@@ -425,12 +424,12 @@ dense.o: dense.cpp
 
 maxpool.o: maxPool.cpp
 #  Implicit rule search has not been done.
- 
 #  Modification time never checked.
 #  File has not been updated.
 #  recipe to execute (from `Makefile', line 28):
 	$(C) $(CFLAGS) -dc maxPool.cpp -o maxpool.o
 
+ 
 # Not a target:
 conv2D.cpp:
 #  Implicit rule search has not been done.
@@ -482,6 +481,6 @@ conv: conv.o mat.o
 
 # strcache hash-table stats:
 # Load=39/8192=0%, Rehash=0, Collisions=1/82=1%
-# Finished Make data base on Sat Jun  4 13:14:07 2022
+# Finished Make data base on Sat Jun  4 14:54:21 2022
 
  
