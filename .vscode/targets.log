@@ -7,14 +7,14 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # There is NO WARRANTY, to the extent permitted by law.
  
 
-# Make data base, printed on Sat Jun  4 14:54:21 2022
+# Make data base, printed on Sun Jun  5 13:00:41 2022
 
 # Variables
 
 # automatic
 <D = $(patsubst %/,%,$(dir $<))
-# automatic
  
+# automatic
 ?F = $(notdir $?)
 # default
 .SHELLFLAGS := -c
@@ -96,7 +96,7 @@ _LMFILES__modshare = /cm/local/modulefiles/slurm/slurm/20.11.8:1
 # environment
 KRB5CCNAME = KEYRING:persistent:238442
 # environment
-SSH_CONNECTION = 128.114.220.123 52040 128.114.183.225 22
+SSH_CONNECTION = 128.114.224.198 52824 128.114.183.225 22
 # environment
 PATH = /home/wchen157/.vscode-server/bin/c3511e6c69bb39013c4a4b7b9566ec1ca73fc4d5/bin/remote-cli:/cm/shared/apps/slurm/current/sbin:/cm/shared/apps/slurm/current/bin:/cm/local/apps/environment-modules/4.5.3//bin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/sbin:/usr/sbin:/cm/local/apps/environment-modules/4.5.3/bin:/opt/dell/srvadmin/bin:/home/wchen157/.local/bin:/home/wchen157/bin:/home/wchen157/.local/bin:/home/wchen157/bin
 # environment
@@ -122,7 +122,7 @@ VSCODE_PIPE_LOGGING = true
 # environment
 PWD = /home/wchen157/AM148/GPU-CNN
 # environment
-VSCODE_IPC_HOOK_CLI = /run/user/238442/vscode-ipc-04714c44-4d49-4b6a-a305-cbb60d3c940a.sock
+VSCODE_IPC_HOOK_CLI = /run/user/238442/vscode-ipc-c480c540-e251-40d7-93a7-78f8d0b6080a.sock
 # automatic
 *D = $(patsubst %/,%,$(dir $*))
 # environment
@@ -156,7 +156,7 @@ MAKECMDGOALS := all
 # environment
 SHLVL = 5
 # environment
-XDG_SESSION_ID = 73559
+XDG_SESSION_ID = 74808
 # environment
 USER = wchen157
 # makefile
@@ -234,7 +234,7 @@ MAKEFLAGS = Rrqp
 # environment
 MFLAGS = -Rrqp
 # environment
-SSH_CLIENT = 128.114.220.123 52040 22
+SSH_CLIENT = 128.114.224.198 52824 22
 # environment
 MAIL = /var/spool/mail/wchen157
 # environment
@@ -278,7 +278,7 @@ LANG = C
 # environment
 VSCODE_EXTHOST_WILL_SEND_SOCKET = true
 # variable set hash-table stats:
-# Load=92/1024=9%, Rehash=0, Collisions=6/119=5%
+# Load=92/1024=9%, Rehash=0, Collisions=6/114=5%
 
 # Pattern-specific Variable Values
 
@@ -286,9 +286,9 @@ VSCODE_EXTHOST_WILL_SEND_SOCKET = true
 
 # Directories
 
-# . (device 1991046868, inode 144120372302809331): 31 files, no impossibilities.
+# . (device 1991046868, inode 144120372302809331): 33 files, no impossibilities.
 
-# 31 files, no impossibilities in 1 directories.
+# 33 files, no impossibilities in 1 directories.
 
 # Implicit Rules
 
@@ -296,57 +296,45 @@ VSCODE_EXTHOST_WILL_SEND_SOCKET = true
 
 # Files
 
-CNN: matmul.o CNN.o mat.o conv.o
-#  Implicit rule search has not been done.
+# Not a target:
+CNN:
+#  Implicit rule search has been done.
 #  Last modified 2022-06-03 18:38:12
 #  File has been updated.
-#  Needs to be updated (-q is set).
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/5=0%
-#  recipe to execute (from `Makefile', line 12):
-	$(C) $(CFLAGS) -o CNN matmul.o CNN.o mat.o conv.o
+#  Successfully updated.
 
 all: CNN
 #  Command line target.
 #  Implicit rule search has been done.
 #  File does not exist.
 #  File has been updated.
-#  Needs to be updated (-q is set).
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/5=0%
+#  Successfully updated.
 
 CNN.o: CNN.cpp
 #  Implicit rule search has not been done.
-#  Implicit/static pattern stem: `'
-#  Last modified 2022-06-03 18:35:52
-#  File has been updated.
-#  Needs to be updated (-q is set).
-# automatic
-# @ := CNN.o
-# automatic
-# % := 
-# automatic
-# * := 
-# automatic
-# + := CNN.cpp
-# automatic
-# | := 
-# automatic
-# < := CNN.cpp
-# automatic
-# ^ := CNN.cpp
-# automatic
-# ? := CNN.cpp
-# variable set hash-table stats:
-# Load=8/32=25%, Rehash=0, Collisions=1/13=8%
+#  Modification time never checked.
+#  File has not been updated.
 #  recipe to execute (from `Makefile', line 15):
 	$(C) $(CFLAGS) -c CNN.cpp -o CNN.o
 
+dense.exe: dense.o mat.o
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from `Makefile', line 31):
+	$(C) $(CFLAGS) -o dense.exe dense.o mat.o
+
+maxpool.exe: maxpool.o mat.o
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from `Makefile', line 25):
+	$(C) $(CFLAGS) -o maxpool.exe maxpool.o mat.o
+
 matmul.o: matmul.cpp
 #  Implicit rule search has not been done.
-#  Last modified 2022-06-03 15:39:53
-#  File has been updated.
-#  Successfully updated.
+#  Modification time never checked.
+#  File has not been updated.
 #  recipe to execute (from `Makefile', line 37):
 	$(C) $(CFLAGS) -dc matmul.cpp
 
@@ -371,7 +359,7 @@ maxPool.cpp:
 # Not a target:
 Makefile:
 #  Implicit rule search has been done.
-#  Last modified 2022-06-04 13:14:07
+#  Last modified 2022-06-05 13:00:40
 #  File has been updated.
 #  Successfully updated.
 
@@ -381,6 +369,22 @@ mat.cpp:
 #  Modification time never checked.
 #  File has not been updated.
 
+conv.exe: conv.o mat.o
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from `Makefile', line 19):
+	$(C) $(CFLAGS) -o conv.exe conv.o mat.o
+	
+
+CNN.exe: matmul.o CNN.o mat.o conv.o
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+ 
+#  File has not been updated.
+#  recipe to execute (from `Makefile', line 12):
+	$(C) $(CFLAGS) -o CNN.exe matmul.o CNN.o mat.o conv.o
+
 # Not a target:
 .DEFAULT:
 #  Implicit rule search has not been done.
@@ -389,31 +393,16 @@ mat.cpp:
 
 # Not a target:
 CNN.cpp:
-#  Implicit rule search has been done.
-#  Last modified 2022-06-03 18:38:36
-#  File has been updated.
-#  Successfully updated.
-
-dense: dense.o mat.o
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from `Makefile', line 31):
-	$(C) $(CFLAGS) -o dense dense.o mat.o
 
 clean:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
 #  recipe to execute (from `Makefile', line 42):
-	rm *.o conv, mat, main, CNN
-
-maxpool: maxpool.o mat.o
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-#  recipe to execute (from `Makefile', line 25):
-	$(C) $(CFLAGS) -o maxpool maxpool.o mat.o
+	rm *.o *.exe
 
 dense.o: dense.cpp
 #  Implicit rule search has not been done.
@@ -429,7 +418,6 @@ maxpool.o: maxPool.cpp
 #  recipe to execute (from `Makefile', line 28):
 	$(C) $(CFLAGS) -dc maxPool.cpp -o maxpool.o
 
- 
 # Not a target:
 conv2D.cpp:
 #  Implicit rule search has not been done.
@@ -438,10 +426,9 @@ conv2D.cpp:
 
 # Not a target:
 matmul.cpp:
-#  Implicit rule search has been done.
-#  Last modified 2022-06-03 15:04:45
-#  File has been updated.
-#  Successfully updated.
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 mat.o: mat.cpp
 #  Implicit rule search has not been done.
@@ -458,29 +445,21 @@ conv.o: conv2D.cpp
 	$(C) $(CFLAGS) -dc conv2D.cpp -o conv.o
 	
 
-conv: conv.o mat.o
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-#  recipe to execute (from `Makefile', line 19):
-	$(C) $(CFLAGS) -o conv conv.o mat.o
-	
-
 # files hash-table stats:
-# Load=21/1024=2%, Rehash=0, Collisions=0/57=0%
+# Load=22/1024=2%, Rehash=0, Collisions=0/56=0%
 # VPATH Search Paths
 
 # No `vpath' search paths.
 
 # No general (`VPATH' variable) search path.
 
-# # of strings in strcache: 0 / lookups = 82 / hits = 82
+# # of strings in strcache: 0 / lookups = 83 / hits = 83
 # # of strcache buffers: 1 (* 8176 B/buffer = 8176 B)
-# strcache used: total = 0 (318) / max = 0 / min = 8176 / avg = 0
-# strcache free: total = 0 (7858) / max = 0 / min = 8176 / avg = 0
+# strcache used: total = 0 (360) / max = 0 / min = 8176 / avg = 0
+# strcache free: total = 0 (7816) / max = 0 / min = 8176 / avg = 0
 
 # strcache hash-table stats:
-# Load=39/8192=0%, Rehash=0, Collisions=1/82=1%
-# Finished Make data base on Sat Jun  4 14:54:21 2022
+# Load=43/8192=1%, Rehash=0, Collisions=1/83=1%
+# Finished Make data base on Sun Jun  5 13:00:41 2022
 
  

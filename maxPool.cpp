@@ -142,7 +142,7 @@ int main () {
 	int Cpu = 0; 
 	int N = 12; 
 	int poolsize = 3;
-	Matrix A(N, N, N, Cpu), C(N/poolsize, N/poolsize, 0, Cpu), D(N/poolsize, N/poolsize, 0, Cpu);;
+	Matrix A(N, N, N, Cpu), C(N/poolsize, N/poolsize, 0, Cpu), D(N/poolsize, N/poolsize, 0, Cpu);
 	for( int i = 0; i < A.height; i++) {
     	for( int j = 0; j < A.width; j++) {
             A.elements[i*A.stride + j] = i+j;
