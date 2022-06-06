@@ -1,0 +1,62 @@
+filter1
+Shape: 3x3
+0 1 0 
+0 1 0 
+0 1 0 
+
+filter2
+Shape: 3x3
+1 0 0 
+0 1 0 
+0 0 1 
+
+img
+Shape: 6x6
+1 1 1 1 1 1 
+1 1 1 1 1 1 
+1 1 1 1 1 1 
+1 1 1 1 1 1 
+1 1 1 1 1 1 
+1 1 1 1 1 1 
+
+First Conv2D
+dimBlock: 32x32
+dimGrid: 1x1
+GPU convolution Time = 0.033824ms
+Shape: 6x6
+2 2 2 2 2 2 
+3 3 3 3 3 3 
+3 3 3 3 3 3 
+3 3 3 3 3 3 
+3 3 3 3 3 3 
+2 2 2 2 2 2 
+
+Second Conv2D
+dimBlock: 32x32
+dimGrid: 1x1
+GPU convolution Time = 0.009184ms
+Shape: 6x6
+5 5 5 5 5 2 
+6 8 8 8 8 5 
+6 9 9 9 9 6 
+6 9 9 9 9 6 
+5 8 8 8 8 6 
+2 5 5 5 5 5 
+
+
+MaxPooling2D
+dimBlock: 2x2
+dimGrid: 3x3
+GPU MaxPooling Time = 0.009216ms
+Shape: 3x3
+8 8 8 
+9 9 9 
+8 8 8 
+
+Dense Layer
+Naive GPU MatMul Time = 0.009248ms
+Shape: 3x4
+16.2369 9.16723 12.7658 17.5643 
+18.2665 10.3131 14.3615 19.7599 
+16.2369 9.16723 12.7658 17.5643 
+

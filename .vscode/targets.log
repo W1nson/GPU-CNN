@@ -7,16 +7,16 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # There is NO WARRANTY, to the extent permitted by law.
  
 
-# Make data base, printed on Sun Jun  5 13:00:41 2022
+# Make data base, printed on Sun Jun  5 18:33:49 2022
 
 # Variables
 
 # automatic
 <D = $(patsubst %/,%,$(dir $<))
- 
 # automatic
 ?F = $(notdir $?)
 # default
+ 
 .SHELLFLAGS := -c
 # environment
 VSCODE_AGENT_FOLDER = /home/wchen157/.vscode-server
@@ -122,7 +122,7 @@ VSCODE_PIPE_LOGGING = true
 # environment
 PWD = /home/wchen157/AM148/GPU-CNN
 # environment
-VSCODE_IPC_HOOK_CLI = /run/user/238442/vscode-ipc-c480c540-e251-40d7-93a7-78f8d0b6080a.sock
+VSCODE_IPC_HOOK_CLI = /run/user/238442/vscode-ipc-8ec1660d-28db-4859-8aea-64c074967803.sock
 # automatic
 *D = $(patsubst %/,%,$(dir $*))
 # environment
@@ -286,9 +286,9 @@ VSCODE_EXTHOST_WILL_SEND_SOCKET = true
 
 # Directories
 
-# . (device 1991046868, inode 144120372302809331): 33 files, no impossibilities.
+# . (device 1991046868, inode 144120372302809331): 30 files, no impossibilities.
 
-# 33 files, no impossibilities in 1 directories.
+# 30 files, no impossibilities in 1 directories.
 
 # Implicit Rules
 
@@ -296,12 +296,13 @@ VSCODE_EXTHOST_WILL_SEND_SOCKET = true
 
 # Files
 
-# Not a target:
-CNN:
-#  Implicit rule search has been done.
-#  Last modified 2022-06-03 18:38:12
+CNN: CNN.o mat.o conv.o maxpool.o dense.o
+#  Implicit rule search has not been done.
+#  Last modified 2022-06-05 18:33:29
 #  File has been updated.
 #  Successfully updated.
+#  recipe to execute (from `Makefile', line 12):
+	$(C) $(CFLAGS) -o CNN CNN.o mat.o conv.o maxpool.o dense.o
 
 all: CNN
 #  Command line target.
@@ -312,24 +313,11 @@ all: CNN
 
 CNN.o: CNN.cpp
 #  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+#  Last modified 2022-06-05 18:33:20
+#  File has been updated.
+#  Successfully updated.
 #  recipe to execute (from `Makefile', line 15):
 	$(C) $(CFLAGS) -c CNN.cpp -o CNN.o
-
-dense.exe: dense.o mat.o
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-#  recipe to execute (from `Makefile', line 31):
-	$(C) $(CFLAGS) -o dense.exe dense.o mat.o
-
-maxpool.exe: maxpool.o mat.o
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-#  recipe to execute (from `Makefile', line 25):
-	$(C) $(CFLAGS) -o maxpool.exe maxpool.o mat.o
 
 matmul.o: matmul.cpp
 #  Implicit rule search has not been done.
@@ -340,15 +328,17 @@ matmul.o: matmul.cpp
 
 # Not a target:
 dense.cpp:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+#  Implicit rule search has been done.
+#  Last modified 2022-06-05 18:21:01
+#  File has been updated.
+#  Successfully updated.
 
 # Not a target:
 maxPool.cpp:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+#  Implicit rule search has been done.
+#  Last modified 2022-06-05 18:32:16
+#  File has been updated.
+#  Successfully updated.
 
 # Not a target:
 .SUFFIXES:
@@ -359,31 +349,16 @@ maxPool.cpp:
 # Not a target:
 Makefile:
 #  Implicit rule search has been done.
-#  Last modified 2022-06-05 13:00:40
+#  Last modified 2022-06-05 18:33:10
 #  File has been updated.
 #  Successfully updated.
 
 # Not a target:
 mat.cpp:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-conv.exe: conv.o mat.o
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-#  recipe to execute (from `Makefile', line 19):
-	$(C) $(CFLAGS) -o conv.exe conv.o mat.o
-	
-
-CNN.exe: matmul.o CNN.o mat.o conv.o
-#  Implicit rule search has not been done.
-#  Modification time never checked.
- 
-#  File has not been updated.
-#  recipe to execute (from `Makefile', line 12):
-	$(C) $(CFLAGS) -o CNN.exe matmul.o CNN.o mat.o conv.o
+#  Implicit rule search has been done.
+#  Last modified 2022-06-03 12:17:38
+#  File has been updated.
+#  Successfully updated.
 
 # Not a target:
 .DEFAULT:
@@ -393,36 +368,55 @@ CNN.exe: matmul.o CNN.o mat.o conv.o
 
 # Not a target:
 CNN.cpp:
+#  Implicit rule search has been done.
+#  Last modified 2022-06-05 18:31:32
+#  File has been updated.
+#  Successfully updated.
+
+dense: dense.o mat.o
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
+#  recipe to execute (from `Makefile', line 31):
+	$(C) $(CFLAGS) -o dense dense.o mat.o
+ 
 
 clean:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
 #  recipe to execute (from `Makefile', line 42):
-	rm *.o *.exe
+	rm *.o 
 
-dense.o: dense.cpp
+maxpool: maxpool.o mat.o
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
+#  recipe to execute (from `Makefile', line 25):
+	$(C) $(CFLAGS) -o maxpool maxpool.o mat.o
+
+dense.o: dense.cpp
+#  Implicit rule search has not been done.
+#  Last modified 2022-06-05 18:33:25
+#  File has been updated.
+#  Successfully updated.
 #  recipe to execute (from `Makefile', line 34):
 	$(C) $(CFLAGS) -dc dense.cpp -o dense.o	
 
 maxpool.o: maxPool.cpp
 #  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+#  Last modified 2022-06-05 18:33:24
+#  File has been updated.
+#  Successfully updated.
 #  recipe to execute (from `Makefile', line 28):
 	$(C) $(CFLAGS) -dc maxPool.cpp -o maxpool.o
 
 # Not a target:
 conv2D.cpp:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+#  Implicit rule search has been done.
+#  Last modified 2022-06-05 18:32:42
+#  File has been updated.
+#  Successfully updated.
 
 # Not a target:
 matmul.cpp:
@@ -432,34 +426,44 @@ matmul.cpp:
 
 mat.o: mat.cpp
 #  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+#  Last modified 2022-06-05 18:33:21
+#  File has been updated.
+#  Successfully updated.
 #  recipe to execute (from `Makefile', line 39):
 	$(C) $(CFLAGS) -dc mat.cpp
 
 conv.o: conv2D.cpp
 #  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+#  Last modified 2022-06-05 18:33:22
+#  File has been updated.
+#  Successfully updated.
 #  recipe to execute (from `Makefile', line 22):
 	$(C) $(CFLAGS) -dc conv2D.cpp -o conv.o
 	
 
+conv: conv.o mat.o
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from `Makefile', line 19):
+	$(C) $(CFLAGS) -o conv conv.o mat.o
+	
+
 # files hash-table stats:
-# Load=22/1024=2%, Rehash=0, Collisions=0/56=0%
+# Load=21/1024=2%, Rehash=0, Collisions=0/56=0%
 # VPATH Search Paths
 
 # No `vpath' search paths.
 
 # No general (`VPATH' variable) search path.
 
-# # of strings in strcache: 0 / lookups = 83 / hits = 83
+# # of strings in strcache: 0 / lookups = 81 / hits = 81
 # # of strcache buffers: 1 (* 8176 B/buffer = 8176 B)
-# strcache used: total = 0 (360) / max = 0 / min = 8176 / avg = 0
-# strcache free: total = 0 (7816) / max = 0 / min = 8176 / avg = 0
+# strcache used: total = 0 (329) / max = 0 / min = 8176 / avg = 0
+# strcache free: total = 0 (7847) / max = 0 / min = 8176 / avg = 0
 
 # strcache hash-table stats:
-# Load=43/8192=1%, Rehash=0, Collisions=1/83=1%
-# Finished Make data base on Sun Jun  5 13:00:41 2022
+# Load=40/8192=0%, Rehash=0, Collisions=1/81=1%
+# Finished Make data base on Sun Jun  5 18:33:49 2022
 
  

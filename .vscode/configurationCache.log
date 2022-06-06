@@ -1,1 +1,1 @@
-{"buildTargets":["CNN","CNN.exe","CNN.o","all","clean","conv","conv.exe","conv.o","dense","dense.exe","dense.o","mat.o","matmul.o","maxpool","maxpool.exe","maxpool.o"],"launchTargets":["/home/wchen157/AM148/GPU-CNN>CNN()"],"customConfigurationProvider":{"workspaceBrowse":{"browsePath":[],"compilerArgs":[]},"fileIndex":[]}}
+{"buildTargets":["CNN","CNN.o","all","clean","conv","conv.o","dense","dense.o","mat.o","matmul.o","maxpool","maxpool.o"],"launchTargets":[],"customConfigurationProvider":{"workspaceBrowse":{"browsePath":[],"compilerArgs":[]},"fileIndex":[]}}

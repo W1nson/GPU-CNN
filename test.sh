@@ -14,7 +14,8 @@ cat run.err*
 
 echo
 echo "output file: "
-cat run.out*
-
+rm output.txt
+cat run.out* > output.txt
+cat output.txt
 
 rm *.out* *.err*

@@ -19,19 +19,19 @@ __global__ void max_reduce(Matrix input, const int poolsize, Matrix out) {
 	int row = blockDim.y * blockIdx.y + threadIdx.y;
 	int col = blockDim.x * blockIdx.x + threadIdx.x; 
 
-
 	int ssize = poolsize * poolsize;
 	int sid = threadIdx.y * blockDim.y + threadIdx.x; 
+
+	// check if share id is bigger than the pool block 
+	// load the data on to block
 	if(sid  < ssize) {
 		sdata[sid] = input.elements[row * input.stride + col];  
 	}
-	__syncthreads();
+	__syncthreads(); // make sure all the load finishes 
 
-	int s = ssize/2;
-	if(poolsize %2 != 0) 
-		s = (ssize)/2; 
 
-	for(; s>0; s >>=1) {
+	// using reduce idea to reduce the data in the block
+	for(int s = ssize/2; s>0; s >>=1) {
         if(sid < s) {
             if(sdata[sid] > sdata[sid + s]) 
                 sdata[sid] =  sdata[sid];    
@@ -48,6 +48,7 @@ __global__ void max_reduce(Matrix input, const int poolsize, Matrix out) {
 		out.elements[blockIdx.y * out.stride + blockIdx.x] = max;
 	}
 
+	// this is the naive way of find max of each window. 
 	// if(sid == 0) {
 	// 	float max = sdata[0]; 
 	// 	for(int k = 1; k < ssize; k++) {
@@ -55,13 +56,10 @@ __global__ void max_reduce(Matrix input, const int poolsize, Matrix out) {
 	// 			max = sdata[k];
 	// 	}
 	// 	out.elements[blockIdx.y * out.stride + blockIdx.x] = max;
-	// }
-
-	
-	
+	// }	
 }
 
-
+// wrapper funciton for the device function
 void maxpool2D(Matrix input, int poolsize, Matrix out)  {
 	int Gpu = 1, toDev = 1, fromDev = 2; 
 
@@ -75,20 +73,29 @@ void maxpool2D(Matrix input, int poolsize, Matrix out)  {
 
 	cout << "dimBlock: " << dimBlock.y << 'x' << dimBlock.x << endl; 
 	cout << "dimGrid: " << dimGrid.y << 'x' << dimGrid.x << endl; 
+	hipEvent_t start, stop; 
+    float elapsed_secs; 
+    hipEventCreate(&start); 
+    hipEventCreate(&stop); 
+    hipEventRecord(start, 0); 
 
 	max_reduce<<<dimGrid, dimBlock, poolsize*poolsize>>>(d_A, poolsize, d_B); 
 
+	hipEventRecord(stop, 0); 
+    hipEventSynchronize(stop); 
+    hipEventElapsedTime(&elapsed_secs, start, stop); 
+    cout<<"GPU MaxPooling Time = "<< elapsed_secs << "ms" << endl;
+   
 
 	out.load(d_B, fromDev); 
 
 	d_A.dealloc(Gpu); 
 	d_B.dealloc(Gpu); 
 
-
 }
 
 
-
+// serial_maxpooling is demonstrating the idea of maxpooling 
 void serial_maxpool2D(Matrix input, int poolsize, Matrix out) {
 	int Cpu = 0; 
 	
@@ -99,6 +106,8 @@ void serial_maxpool2D(Matrix input, int poolsize, Matrix out) {
 	
 	
 	float temp[10] = {0};
+
+	clock_t begin = clock();
 	for(int i = 0; i < A.height; i+= poolsize) {
 		for(int j = 0; j < A.width; j+=poolsize) {
 			if (poolsize == 2)
@@ -129,6 +138,11 @@ void serial_maxpool2D(Matrix input, int poolsize, Matrix out) {
 			A.elements[(i/poolsize)*A.stride + (j/poolsize)] = max; 
 		}
 	}
+
+	clock_t end = clock();
+	double fullcpu = double(end - begin) / (CLOCKS_PER_SEC*12);
+	std::cout<< " CPU Time = " << fullcpu << "s" << std::endl; 
+
 	out.load(A);
 
 	
@@ -137,48 +151,46 @@ void serial_maxpool2D(Matrix input, int poolsize, Matrix out) {
 }
 
 
+// int main () {
 
-int main () {
-	int Cpu = 0; 
-	int N = 12; 
-	int poolsize = 3;
-	Matrix A(N, N, N, Cpu), C(N/poolsize, N/poolsize, 0, Cpu), D(N/poolsize, N/poolsize, 0, Cpu);
-	for( int i = 0; i < A.height; i++) {
-    	for( int j = 0; j < A.width; j++) {
-            A.elements[i*A.stride + j] = i+j;
-    	}
-	}
+// 	int Cpu = 0; 
+// 	int N = 2048; 
+// 	int poolsize = 2;
+// 	Matrix A(N, N, N, Cpu), C(N/poolsize, N/poolsize, 0, Cpu), D(N/poolsize, N/poolsize, 0, Cpu);
+// 	for( int i = 0; i < A.height; i++) {
+//     	for( int j = 0; j < A.width; j++) {
+//             A.elements[i*A.stride + j] = i+j;
+//     	}
+// 	}
 
-	A.elements[13] = 10;
-
-	cout << 'A' << endl;
-	for( int i = 0; i < A.height; i++) {
-    	for( int j = 0; j < A.width; j++) {
-            cout << A.elements[i*A.stride + j] << ' ';
-    	}
-		cout << endl;
-	}
-	cout << endl; 
+// 	cout << 'A' << endl;
+// 	for( int i = 0; i < A.height; i++) {
+//     	for( int j = 0; j < A.width; j++) {
+//             cout << A.elements[i*A.stride + j] << ' ';
+//     	}
+// 		cout << endl;
+// 	}
+// 	cout << endl; 
 
 
-	serial_maxpool2D(A, poolsize, C); 
-	cout << "Serial C" << endl; 
-	for( int i = 0; i < C.height; i++) {
-    	for( int j = 0; j < C.width; j++) {
-            cout << C.elements[i*C.stride + j] << ' ';
-    	}
-		cout << endl;
-	}
-	cout << endl; 
+// 	// serial_maxpool2D(A, poolsize, C); 
+// 	// cout << "Serial C" << endl; 
+// 	// for( int i = 0; i < C.height; i++) {
+//     // 	for( int j = 0; j < C.width; j++) {
+//     //         cout << C.elements[i*C.stride + j] << ' ';
+//     // 	}
+// 	// 	cout << endl;
+// 	// }
+// 	// cout << endl; 
 
 
-	maxpool2D(A, poolsize, D); 
-	cout << "Gpu D" << endl; 
-	for( int i = 0; i < D.height; i++) {
-    	for( int j = 0; j < D.width; j++) {
-            cout << D.elements[i*D.stride + j] << ' ';
-    	}
-		cout << endl;
-	}
-	cout << endl; 
-}
+// 	maxpool2D(A, poolsize, D); 
+// 	cout << "Gpu D" << endl; 
+// 	for( int i = 0; i < D.height; i++) {
+//     	for( int j = 0; j < D.width; j++) {
+//             cout << D.elements[i*D.stride + j] << ' ';
+//     	}
+// 		cout << endl;
+// 	}
+// 	cout << endl; 
+// }
