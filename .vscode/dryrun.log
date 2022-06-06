@@ -1,5 +1,11 @@
 make --dry-run --keep-going --print-directory
 make: Entering directory `/home/wchen157/AM148/GPU-CNN'
-make: Nothing to be done for `all'.
+hipcc  -std=c++11 -c CNN.cpp -o CNN.o
+ 
+hipcc  -std=c++11 -dc mat.cpp
+hipcc  -std=c++11 -dc conv2D.cpp -o conv.o
+hipcc  -std=c++11 -dc maxPool.cpp -o maxpool.o
+hipcc  -std=c++11 -dc dense.cpp -o dense.o	
+hipcc  -std=c++11 -o CNN CNN.o mat.o conv.o maxpool.o dense.o
 make: Leaving directory `/home/wchen157/AM148/GPU-CNN'
  

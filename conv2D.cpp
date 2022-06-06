@@ -1,6 +1,5 @@
 #include <iostream> 
 #include <hip/hip_runtime.h> 
-// #include "matmul.h" 
 #include "mat.h" 
 
 #define BLOCK_SIZE 32

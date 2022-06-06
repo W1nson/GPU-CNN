@@ -39,4 +39,4 @@ mat.o: mat.cpp
 	$(C) $(CFLAGS) -dc mat.cpp
 
 clean:
-	rm *.o 
+	rm *.o CNN conv maxpool dense 

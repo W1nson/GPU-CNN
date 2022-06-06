@@ -1,7 +1,6 @@
 #include <hip/hip_runtime.h>
 #include <iostream>
 
-#include "matmul.h"
 #include "mat.h"
 #include "conv2D.h"
 #include "maxPool.h"

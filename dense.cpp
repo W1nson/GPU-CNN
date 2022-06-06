@@ -2,7 +2,6 @@
 #include <hip/hip_runtime.h> 
 #include <cstdlib> 
 #include "mat.h" 
-// #include "matmul.h" 
 
 
 using namespace std; 
